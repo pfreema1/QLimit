@@ -3,6 +3,7 @@
   --borderColor: #e2e4e8;
   --primaryFont: Helvetica, Arial, Sans-Serif;
   --primaryFontColor: #25292e;
+  --addCardButtonColor: #5eb95c;
 }
 
 div {
@@ -30,7 +31,7 @@ body {
 
 .process-header {
   height: 40px;
-  border-bottom: 1px solid var(--borderColor);
+  /* border-bottom: 1px solid var(--borderColor); */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,14 +53,40 @@ body {
 .add-card-form-container {
   margin: 0 auto;
   width: 100%;
+  padding: 10px;
 }
 
-.card-textarea {
-  width: 95%;
+.add-card-textarea {
+  width: 100%;
   margin: 0 auto;
   border-radius: var(--borderRoundness);
   background-color: white;
   border: 1px solid var(--borderColor);
   display: block;
   box-shadow: inset 0px 0px 28px -15px rgba(0, 0, 0, 0.75);
+  min-height: 60px;
+}
+
+.add-card-button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  border-radius: var(--borderRoundness);
+  width: 130px;
+  height: 30px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.add-card-button {
+  background-color: var(--addCardButtonColor);
+  color: white;
+}
+
+.process-header-container {
+  border-bottom: 1px solid var(--borderColor);
+  /* transition: all 0.3s ease-in-out; */
 }

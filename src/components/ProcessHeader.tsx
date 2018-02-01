@@ -2,7 +2,10 @@ import * as React from "react";
 import AddCardForm from "./AddCardForm";
 
 interface ProcessHeaderProps {
+  processId: string;
   title: string;
+  numCards: number;
+  handleNewCardAdded(processId: string): void;
 }
 
 interface ProcessHeaderState {
@@ -21,6 +24,7 @@ class ProcessHeader extends React.Component<
     };
 
     this.handleAddCardButtonClick = this.handleAddCardButtonClick.bind(this);
+    this.hideForm = this.hideForm.bind(this);
   }
 
   handleAddCardButtonClick() {
@@ -29,15 +33,23 @@ class ProcessHeader extends React.Component<
     }));
   }
 
+  hideForm() {
+    this.setState(prevState => ({
+      showAddCardForm: !prevState.showAddCardForm
+    }));
+  }
+
   render() {
     return (
-      <div>
+      <div className="process-header-container">
         <div className="process-header">
           <div className="process-title-container">
             <span className="header-el-spacing process-title">
               {this.props.title}
             </span>
-            <span className="header-el-spacing process-count">5</span>
+            <span className="header-el-spacing process-count">
+              {this.props.numCards}
+            </span>
           </div>
           <div className="process-options-container">
             <span
@@ -51,7 +63,13 @@ class ProcessHeader extends React.Component<
             </span>
           </div>
         </div>
-        {this.state.showAddCardForm ? <AddCardForm /> : null}
+        {this.state.showAddCardForm ? (
+          <AddCardForm
+            hideForm={this.hideForm}
+            handleNewCardAdded={this.props.handleNewCardAdded}
+            processId={this.props.processId}
+          />
+        ) : null}
       </div>
     );
   }

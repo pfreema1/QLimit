@@ -2,7 +2,10 @@ import * as React from "react";
 import ProcessHeader from "./ProcessHeader";
 
 interface ProcessProps {
+  processId: string;
   title: string;
+  numCards: number;
+  handleNewCardAdded(processId: string): void;
 }
 
 interface ProcessState {}
@@ -17,7 +20,7 @@ class Process extends React.Component<ProcessProps, ProcessState> {
   render() {
     return (
       <div className="process-container">
-        <ProcessHeader title={this.props.title} />
+        <ProcessHeader {...this.props} />
       </div>
     );
   }
