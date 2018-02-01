@@ -5,7 +5,11 @@ interface ProcessProps {
   processId: string;
   title: string;
   numCards: number;
-  handleNewCardAdded(processId: string): void;
+  handleNewCardAdded(
+    processId: string,
+    cardText: string,
+    addedBy: string
+  ): void;
 }
 
 interface ProcessState {}

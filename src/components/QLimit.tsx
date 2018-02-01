@@ -7,11 +7,19 @@ interface QLimitState {
   process1Attr: ProcessObject;
   process2Attr: ProcessObject;
   process3Attr: ProcessObject;
+  process1Cards?: CardObject[];
+  process2Cards?: CardObject[];
+  process3Cards?: CardObject[];
 }
 
 interface ProcessObject {
   title: string;
   numCards: number;
+}
+
+interface CardObject {
+  cardText: string;
+  addedBy: string;
 }
 
 class QLimit extends React.Component<QLimitProps, QLimitState> {
@@ -36,9 +44,17 @@ class QLimit extends React.Component<QLimitProps, QLimitState> {
     this.handleNewCardAdded = this.handleNewCardAdded.bind(this);
   }
 
-  handleNewCardAdded(processId: string) {
+  handleNewCardAdded(processId: string, cardText: string, addedBy: string) {
     console.log("processId from QLimit:  ", processId);
-    // increase numCards
+    console.log("cardText:  ", cardText);
+    console.log("addedBy:  " + addedBy);
+    let tempCardObj: CardObject = {
+      cardText: cardText,
+      addedBy: addedBy
+    };
+
+    console.log(tempCardObj);
+    // increase numCards, add tempCardObj
     this.setState(prevState => ({
       ...this.state,
       [processId + "Attr"]: {

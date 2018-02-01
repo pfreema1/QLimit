@@ -3,7 +3,11 @@ import * as React from "react";
 interface AddCardFormProps {
   processId: string;
   hideForm(): void;
-  handleNewCardAdded(processId: string): void;
+  handleNewCardAdded(
+    processId: string,
+    cardText: string,
+    addedBy: string
+  ): void;
 }
 
 interface AddCardFormState {
@@ -36,7 +40,11 @@ class AddCardForm extends React.Component<AddCardFormProps, AddCardFormState> {
 
   handleAddCardClick() {
     // tell QLimit component add new card was clicked
-    this.props.handleNewCardAdded(this.props.processId);
+    this.props.handleNewCardAdded(
+      this.props.processId,
+      this.state.text,
+      "Anon"
+    );
     // tell ProcessHeader to hide the form
     this.props.hideForm();
   }
