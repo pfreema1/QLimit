@@ -1,0 +1,65 @@
+:root {
+  --borderRoundness: 3px;
+  --borderColor: #e2e4e8;
+  --primaryFont: Helvetica, Arial, Sans-Serif;
+  --primaryFontColor: #25292e;
+}
+
+div {
+  /* outline: 1px solid red; */
+  /* font-family: Helvetica, Arial, Sans-Serif; */
+}
+
+body {
+  font-family: var(--primaryFont);
+  color: var(--primaryFontColor);
+}
+
+.container {
+  width: 100vw;
+}
+
+.process-container {
+  width: 95vw;
+  margin: 15px auto;
+  background-color: #fafbfc;
+  border-radius: var(--borderRoundness);
+  border: 1px solid var(--borderColor);
+  min-height: 150px;
+}
+
+.process-header {
+  height: 40px;
+  border-bottom: 1px solid var(--borderColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.header-el-spacing {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.process-count {
+  background-color: #e8e9eb;
+  border-radius: 50%;
+  padding: 0px 5px;
+  color: #636871;
+}
+
+.add-card-form-container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.card-textarea {
+  width: 95%;
+  margin: 0 auto;
+  border-radius: var(--borderRoundness);
+  background-color: white;
+  border: 1px solid var(--borderColor);
+  display: block;
+  box-shadow: inset 0px 0px 28px -15px rgba(0, 0, 0, 0.75);
+}
